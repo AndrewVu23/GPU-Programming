@@ -46,7 +46,7 @@ int main(void) {
     cudaMemcpy(B_d, B_h, N * sizeof(float), cudaMemcpyHostToDevice);
 
     // Call the kernel
-    vecAdd<<<ceil(N / 256), 256>>>(A_d, B_d, C_d);
+    vecAdd<<<ceil(N / 256.0), 256>>>(A_d, B_d, C_d);
 
     // Copy result from device back to host
     cudaMemcpy(C_h, C_d, N * sizeof(float), cudaMemcpyDeviceToHost);
